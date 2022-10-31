@@ -68,3 +68,8 @@ pNumsEl.addEventListener("click", () => {
   nums.sort((x, y) => x - y);
   pNumsEl.textContent = nums.join(", ");
 });
+
+// 3. sugeneruoti ol sarasa is `const colors = ['red', 'green', 'blue', 'yellow'];`
+const colors = ["red", "green", "blue", "yellow"];
+
+// 4. pridideti html mygtuka, kuri paspaudus isrikiuoti spalvas pagal abecele mazejancia tvarka
