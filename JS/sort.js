@@ -4,7 +4,7 @@ console.log("sort.js");
 const users = [
   {
     name: "James",
-    age: 25,
+    age: 65,
     gender: "male",
     town: "London",
   },
@@ -29,39 +29,42 @@ const users = [
   },
 ];
 
-const words = ["z", "a", "m", "h"];
+console.table(users);
+// // isrikiavom pagal amziu didejancia tvarka
+// users.sort((a, b) => a.age - b.age);
+// console.table(users);
+
+// // isrikiavom pagal amziu mazejancia tvarka
+// users.sort((a, b) => b.age - a.age);
+// console.table(users);
+
+// rikiuojam pagal miesta
+users.sort((a, b) => (a.town > b.town ? 1 : -1));
+console.table(users);
+
+// rikiuojam pagal gender
+users.sort((a, b) => a.gender.localeCompare(b.gender));
+console.log("a.gender.localeCompare(b.gender)");
+console.table(users);
+// isrikiuoti musu masyva pagal varda
+// a - z
+users.sort((a, b) => (a.name > b.name ? 1 : -1));
+console.table(users);
+// z - a
+users.sort((a, b) => (a.name < b.name ? 1 : -1));
+console.table(users);
+
+// 1. uzduotis =========================================================================
+// taikomes
+const pNumsEl = document.getElementById("nums");
 const nums = [5, 10, 1, 50, 12];
 
-// console.table(users);
-console.log("words ===", words);
-console.log("nums ===", nums);
+// 1.i ` <p id="nums"></p>` surasyti skaicius is `const nums = [5, 10, 1, 50, 12];`
+const stringFromArray = nums.join(", ");
+pNumsEl.textContent = stringFromArray;
 
-// zodziai nuo A iki Z
-words.sort();
-console.log("words ===", words);
-
-// nums didejancia tvarka
-nums.sort(); // sitaip skaitinems reiksmems neveikia
-console.log("nums ===", nums);
-
-// nums.sort(fn);
-// fn grazina 3 galimas reiksmes
-// teigiama, neigiama arba nuli
-//
-nums.sort((a, b) => a - b);
-console.log("nums didejancia ===", nums);
-nums.sort((a, b) => b - a);
-console.log("nums mazejancia ===", nums);
-
-// isplestine .sort() versija
-nums.sort((a, b) => {
-  const diff = a - b;
-  if (diff > 0) {
-    return 1;
-  } else if (diff < 0) {
-    return -1;
-  } else if (diff === 0) {
-    return 0;
-  }
+//     2.paspaudus pelyte ant to paragrafo isrikiuoti skaicius didejancia tvarka
+pNumsEl.addEventListener("click", () => {
+  nums.sort((x, y) => x - y);
+  pNumsEl.textContent = nums.join(", ");
 });
-console.log("nums ===", nums);

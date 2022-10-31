@@ -4,7 +4,6 @@ console.log("simple-sort.js");
 const words = ["z", "a", "m", "h"];
 const nums = [5, 10, 1, 50, 12];
 
-// console.table(users);
 console.log("words ===", words);
 console.log("nums ===", nums);
 
