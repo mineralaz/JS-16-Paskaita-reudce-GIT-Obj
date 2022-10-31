@@ -71,3 +71,23 @@ const nums = [5, 7, 1, 50, 12];
   }, nums[0]);
   console.log("maxReduce ===", maxReduce);
 }
+
+{
+  // sugeneruoti html sarasa is masyvo
+  const colors = ["red", "green", "blue", "yellow"];
+  // <ol id="colors"></ol>
+  const colEl = document.getElementById("colors");
+  // map generate elements
+  //   const htmlString = colors.map((color) => `<li> ${color} </li>`).join("");
+  //   colEl.innerHTML = htmlString;
+
+  // reduce generate elements
+
+  const htmlString = colors.reduce(
+    (acc, color) => acc + `<li> ${color} </li>`,
+    ""
+  );
+
+  console.log("htmlString ===", htmlString);
+  colEl.innerHTML = htmlString;
+}
