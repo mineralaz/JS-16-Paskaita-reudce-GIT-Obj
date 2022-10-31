@@ -111,6 +111,22 @@ const amziai = students.reduce((arr, student) => {
 }, []);
 console.log("amziai ===", amziai);
 // 7. Grazinti nauja masyva kurio objektuose butu tik vardas ir miestas
+
 // 8. sugeneruoti rikiuoto saraso pavidalu htmle visu zmoniu vardus ir kiek jiems metu
+
 // 9. Gauti visu zmoniu metu suma .reduce
-// 10. suskaiciuoti visu zmoniu metu vidurki 10 surasti zmongu vardu 'Mike' ir padaryti kad jis nusipirko masina yra tiesa 11 sugeneruoti rikiuoto saraso pavidalu htmle visu zmoniu vardus ir kiek jiems metu
+const visuZmoniuMetuSuma = students.reduce((total, student) => {
+  total += student.age;
+  return total;
+}, 0);
+console.log("visuZmoniuMetuSuma ===", visuZmoniuMetuSuma);
+// 10. suskaiciuoti visu zmoniu metu vidurki
+const visuZmoniuMetuvidurkis = students.reduce(
+  (total, student, i, arr) => total + student.age / students.length,
+  0
+);
+console.log("visuZmoniuMetuvidurkis ===", visuZmoniuMetuvidurkis);
+
+// 11 surasti zmongu vardu 'Mike' ir padaryti kad jis nusipirko masina yra tiesa
+
+// 12 sugeneruoti rikiuoto saraso pavidalu htmle visu zmoniu vardus ir kiek jiems metu
