@@ -94,3 +94,35 @@ console.log("kaunUsersObj ===", kaunUsersObj);
 
 const rez = { ...londUsersObj, ...kaunUsersObj };
 console.log("rez ===", rez);
+
+//  gauti toki masyva
+let gendersObjInit = {
+  male: [],
+  female: [],
+};
+
+const gendersObj = users.reduce((accObj, uObj) => {
+  if (uObj.gender === "female") {
+    accObj.female.push(uObj);
+  } else {
+    accObj.male.push(uObj);
+  }
+  return accObj;
+}, gendersObjInit);
+
+console.log("gendersObjInit ===", gendersObjInit);
+console.log("gendersObj ===", gendersObj);
+
+// gauti sugrupuota pagal miesta
+const usersByTown = users.reduce((accObj, uObj) => {
+  // ? jei toks key(miestas) jau pridetas prie accObj
+  if (accObj[uObj.town]) {
+    // tai as noriu padidinti kieki
+    accObj[uObj.town]++;
+  } else {
+    // kitu atveju - prideti toki key
+    accObj[uObj.town] = 1;
+  }
+  return accObj;
+}, {});
+console.log("usersByTown ===", usersByTown);

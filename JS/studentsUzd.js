@@ -54,14 +54,63 @@ const students = [
 ];
 
 // 1. atrinkti i nauja masyva studentus kurie turi masina
-
+const studentsHasCar = students.reduce((arr, student) => {
+  if (student.hasCar === true) {
+    arr.push(student);
+  }
+  return arr;
+}, []);
+console.log("studentsHasCar ===", studentsHasCar);
 // 1.1 atrinkti i nauja masyva studentus kurie turi masina su forEach
+const studentaiTurintysMasinas = [];
+students.forEach((student) => {
+  if (student.hasCar === true) {
+    studentaiTurintysMasinas.push(student);
+  }
+});
+console.log("studentaiTurintysMasinas ===", studentaiTurintysMasinas);
 
 // 2. Atrinkti i nauja masyva zmones is Vilniaus
+const studentInVilnius = students.reduce((arr, student) => {
+  if (student.town === "Vilnius") {
+    arr.push(student);
+  }
+  return arr;
+}, []);
+console.log("studentInVilnius ===", studentInVilnius);
+
 // 3. Atrinkti i nauja masyva moteris
+const moterys = students.reduce((arr, student) => {
+  if (student.gender === "female") {
+    arr.push(student);
+  }
+  return arr;
+}, []);
+console.log("moterys ===", moterys);
 // 4. suzinoti ar yra nors vienas zmogus is Kauno
-// 5. suskaiciuoti kiek zmoniu yra jaunesni nei 26 6 Grazinti nauja masyva kuriame yra visu zmoniu amziai;
-// 6. Grazinti nauja masyva kurio objektuose butu tik vardas ir miestas
-// 7. sugeneruoti rikiuoto saraso pavidalu htmle visu zmoniu vardus ir kiek jiems metu
-// 8. Gauti visu zmoniu metu suma .reduce
-// 9. suskaiciuoti visu zmoniu metu vidurki 10 surasti zmongu vardu 'Mike' ir padaryti kad jis nusipirko masina yra tiesa 11 sugeneruoti rikiuoto saraso pavidalu htmle visu zmoniu vardus ir kiek jiems metu
+const isThereAnyoneFromKaunas = students.reduce((isThere, student) => {
+  if (student.town === "Kaunas") {
+    isThere = true;
+  }
+  return isThere;
+}, Boolean);
+console.log("isThereAnyoneFromKaunas ===", isThereAnyoneFromKaunas);
+// 5. suskaiciuoti kiek zmoniu yra jaunesni nei 26
+const kiekJaunesniuNei26 = students.reduce((total, student) => {
+  if (student.age < 26) {
+    total++;
+  }
+  return total;
+}, 0);
+console.log("kiekJaunesniuNei26 ===", kiekJaunesniuNei26);
+
+// 6 Grazinti nauja masyva kuriame yra visu zmoniu amziai;
+const amziai = students.reduce((arr, student) => {
+  arr.push(student.age);
+  return arr;
+}, []);
+console.log("amziai ===", amziai);
+// 7. Grazinti nauja masyva kurio objektuose butu tik vardas ir miestas
+// 8. sugeneruoti rikiuoto saraso pavidalu htmle visu zmoniu vardus ir kiek jiems metu
+// 9. Gauti visu zmoniu metu suma .reduce
+// 10. suskaiciuoti visu zmoniu metu vidurki 10 surasti zmongu vardu 'Mike' ir padaryti kad jis nusipirko masina yra tiesa 11 sugeneruoti rikiuoto saraso pavidalu htmle visu zmoniu vardus ir kiek jiems metu
